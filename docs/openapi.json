@@ -1,0 +1,1011 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Qadam Courses API",
+    "version": "1.0.0",
+    "description": "Local educational project. No authentication; bind to loopback."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/api/teachers": {
+      "get": {
+        "summary": "List teachers",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create teachers",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/teachersInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/teachers/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      ],
+      "get": {
+        "summary": "Read teachers",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace editable fields",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/teachersInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete teachers",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/students": {
+      "get": {
+        "summary": "List students",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create students",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/studentsInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/students/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      ],
+      "get": {
+        "summary": "Read students",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace editable fields",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/studentsInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete students",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/courses": {
+      "get": {
+        "summary": "List courses",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "category",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "level",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "teacher_id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create courses",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/coursesInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/courses/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      ],
+      "get": {
+        "summary": "Read courses",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace editable fields",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/coursesInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete courses",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/lessons": {
+      "get": {
+        "summary": "List lessons",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create lessons",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/lessonsInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/lessons/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      ],
+      "get": {
+        "summary": "Read lessons",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace editable fields",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/lessonsInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete lessons",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/enrollments": {
+      "get": {
+        "summary": "List enrollments",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create enrollments",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/enrollmentsInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/enrollments/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      ],
+      "get": {
+        "summary": "Read enrollments",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace editable fields",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/enrollmentsInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete enrollments",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/progress": {
+      "get": {
+        "summary": "List progress",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create progress",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/progressInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/progress/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      ],
+      "get": {
+        "summary": "Read progress",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace editable fields",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/progressInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete progress",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "Duplicate or dependency conflict"
+          }
+        }
+      }
+    },
+    "/api/courses/export.xml": {
+      "get": {
+        "summary": "Course XML export",
+        "responses": {
+          "200": {
+            "description": "XML document",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enrollments/{id}/summary": {
+      "get": {
+        "summary": "Enrollment completion percentage",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Enrollment with counts and percent"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "teachersInput": {
+        "type": "object",
+        "required": [
+          "name",
+          "email",
+          "specialty"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "specialty": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 120
+          }
+        }
+      },
+      "studentsInput": {
+        "type": "object",
+        "required": [
+          "name",
+          "email"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          }
+        }
+      },
+      "coursesInput": {
+        "type": "object",
+        "required": [
+          "title",
+          "slug",
+          "description",
+          "teacher_id",
+          "category",
+          "level",
+          "price",
+          "duration_hours",
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 150
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 3000
+          },
+          "teacher_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "category": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "beginner",
+              "intermediate",
+              "advanced"
+            ]
+          },
+          "price": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000000
+          },
+          "duration_hours": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10000
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "published",
+              "archived"
+            ]
+          }
+        }
+      },
+      "lessonsInput": {
+        "type": "object",
+        "required": [
+          "course_id",
+          "title",
+          "content",
+          "position",
+          "duration_minutes"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "course_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 150
+          },
+          "content": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 10000
+          },
+          "position": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10000
+          },
+          "duration_minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10000
+          }
+        }
+      },
+      "enrollmentsInput": {
+        "type": "object",
+        "required": [
+          "student_id",
+          "course_id",
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "student_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "course_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "cancelled"
+            ]
+          }
+        }
+      },
+      "progressInput": {
+        "type": "object",
+        "required": [
+          "enrollment_id",
+          "lesson_id",
+          "completed"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "enrollment_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "lesson_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "completed": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

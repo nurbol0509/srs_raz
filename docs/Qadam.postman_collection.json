@@ -1,0 +1,550 @@
+{
+  "info": {
+    "name": "Qadam Courses — SOZH 1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "courseId",
+      "value": ""
+    },
+    {
+      "key": "lessonId",
+      "value": ""
+    },
+    {
+      "key": "enrollmentId",
+      "value": ""
+    },
+    {
+      "key": "runId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "01 List courses",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/courses",
+        "header": []
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 Search courses",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/courses?q=Node",
+        "header": []
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 XML export",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/courses/export.xml",
+        "header": []
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200',()=>pm.response.to.have.status(200));",
+              "pm.test('XML content type',()=>pm.expect(pm.response.headers.get('Content-Type')).to.include('application/xml'));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 Create course",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/courses",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Postman API Course\",\n  \"slug\": \"postman-{{runId}}\",\n  \"description\": \"Postman generated course for CRUD demonstration.\",\n  \"teacher_id\": 1,\n  \"category\": \"Testing\",\n  \"level\": \"beginner\",\n  \"price\": 12000,\n  \"duration_hours\": 12,\n  \"status\": \"published\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 201',()=>pm.response.to.have.status(201));",
+              "if(pm.response.code===201)pm.collectionVariables.set('courseId',pm.response.json().id);"
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.collectionVariables.set('runId',Date.now().toString());"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 Read created course",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/courses/{{courseId}}",
+        "header": []
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "06 Update course",
+      "request": {
+        "method": "PUT",
+        "url": "{{baseUrl}}/api/courses/{{courseId}}",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Postman Course\",\n  \"slug\": \"postman-{{runId}}\",\n  \"description\": \"Postman generated course for CRUD demonstration.\",\n  \"teacher_id\": 1,\n  \"category\": \"Testing\",\n  \"level\": \"beginner\",\n  \"price\": 18000,\n  \"duration_hours\": 12,\n  \"status\": \"published\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "07 Add lesson",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/lessons",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"course_id\":{{courseId}},\"title\":\"Postman lesson\",\"content\":\"Learn and test the API.\",\"position\":1,\"duration_minutes\":30}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 201',()=>pm.response.to.have.status(201));",
+              "if(pm.response.code===201)pm.collectionVariables.set('lessonId',pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "08 Enroll student",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/enrollments",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"student_id\":2,\"course_id\":{{courseId}},\"status\":\"active\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 201',()=>pm.response.to.have.status(201));",
+              "if(pm.response.code===201)pm.collectionVariables.set('enrollmentId',pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "09 Complete lesson",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/progress",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enrollment_id\":{{enrollmentId}},\"lesson_id\":{{lessonId}},\"completed\":true}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 201',()=>pm.response.to.have.status(201));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "10 Progress summary",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/enrollments/{{enrollmentId}}/summary",
+        "header": []
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200',()=>pm.response.to.have.status(200));",
+              "pm.test('100 percent',()=>pm.expect(pm.response.json().percent).to.equal(100));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "11 Required fields",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/courses",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 400',()=>pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "12 Wrong type",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/courses",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Postman API Course\",\n  \"slug\": \"postman-{{runId}}\",\n  \"description\": \"Postman generated course for CRUD demonstration.\",\n  \"teacher_id\": 1,\n  \"category\": \"Testing\",\n  \"level\": \"beginner\",\n  \"price\": \"expensive\",\n  \"duration_hours\": 12,\n  \"status\": \"published\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 400',()=>pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "13 Duplicate slug",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/courses",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Postman API Course\",\n  \"slug\": \"postman-{{runId}}\",\n  \"description\": \"Postman generated course for CRUD demonstration.\",\n  \"teacher_id\": 1,\n  \"category\": \"Testing\",\n  \"level\": \"beginner\",\n  \"price\": 12000,\n  \"duration_hours\": 12,\n  \"status\": \"published\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 409',()=>pm.response.to.have.status(409));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "14 Invalid JSON",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/courses",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\":}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 400',()=>pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "15 Missing record",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/courses/999999",
+        "header": []
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 404',()=>pm.response.to.have.status(404));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "16 Referenced course cannot be deleted",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/courses/{{courseId}}",
+        "header": []
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 409',()=>pm.response.to.have.status(409));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "17 Delete enrollment and its progress",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/enrollments/{{enrollmentId}}",
+        "header": []
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "18 Delete lesson",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/lessons/{{lessonId}}",
+        "header": []
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "19 Delete course",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/courses/{{courseId}}",
+        "header": []
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "20 Confirm deleted",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/courses/{{courseId}}",
+        "header": []
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status 404',()=>pm.response.to.have.status(404));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

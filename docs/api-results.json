@@ -1,0 +1,421 @@
+{
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "linux"
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "route": "/",
+      "status": 200,
+      "expected": 200,
+      "body": "<!doctype html><html lang=\"kk\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Курс каталогы · Qadam</title><link rel=\"stylesheet\" href=\"/assets/style.css\"><script src=\"/assets/app.js\" defer></script></head><body><header class=\"topbar\"><a class=\"brand\" href=\"/\"><span class=\"brandmark\">Q</span> qadam<span class=\"branddot\">.</span></a><nav aria-label=\"Негізгі мәзір\"><a href=\"/\">Курстар</a><a href=\"/learning\">Оқу прогресі</a><a href=\"/manage\">Басқару</a><a href=\"/api-docs\">API</a></nav><span class=\"demo\">Оқу жобасы</span></header><main>\n\n<section class=\"hero\"><div><p class=\"eyebrow\">БІЛІМГЕ БІР ҚАДАМ ЖАҚЫН</p><h1>Жаңа дағды.<br><em>Жаңа мүмкіндік.</em></h1><p class=\"lead\">Курсты таңдаңыз, сабақтарды меңгеріңіз және оқу прогресін бір жерден бақылаңыз.</p><a class=\"button\" href=\"#catalog\">Курстарды қарау <span>↗</span></a></div><div class=\"hero-art\" aria-hidden=\"true\"><div class=\"orb\"></div><div class=\"art-card\"><span class=\"mini-label\">ӨСУ ЖОЛЫ</span><div class=\"steps\"><i></i><i></i><i></i><i></i></div><strong>Бүгінгі қадам —<br>ертеңгі нәтиже.</strong><span class=\"art-star\">✳</span></div><span class=\"floating\">↗ Үйренуді жалғастыр</span></div></section>\n<section class=\"metrics\" aria-label=\"Статистика\"><div><strong>3</strong><span>курс каталогта</span></div><div><strong>2</strong><span>студент тіркелген</span></div><div><strong>1</strong><span>курсқа тіркелу</span></div></section>\n<section id=\"catalog\"><div class=\"section-head\"><div><p class=\"eyebrow\">ӨЗ БАҒЫТЫҢЫЗДЫ ТАҢДАҢЫЗ</p><h2>Курс каталогы</h2></div><form class=\"search\" action=\"/\" method=\"get\"><label class=\"sr-only\" for=\"q\">Курсты іздеу</label><input id=\"q\" name=\"q\" value=\"\" placeholder=\"Курс атауы немесе тақырып\"><button>Іздеу</button></form></div>\n<div class=\"cards\"><article class=\"course-card\"><div class=\"cover cover-0\"><span>Дизайн</span><b>Aa</b><small>Бастапқы</small></div><div class=\"card-body\"><div class=\"meta\">16 сағат <span>·</span> Жоба</div><h3><a href=\"/courses/3\">Веб интерфейс негіздері</a></h3><p>HTML, CSS және JavaScript көмегімен қолжетімді интерфейс жасау.</p><div class=\"teacher\"><span class=\"avatar\">А</span>Айдана Серік</div><div class=\"card-bottom\"><strong>Тегін</strong><a href=\"/courses/3\">Толығырақ ↗</a></div></div></article><article class=\"course-card\"><div class=\"cover cover-1\"><span>Деректер</span><b>▥</b><small>Орта</small></div><div class=\"card-body\"><div class=\"meta\">32 сағат <span>·</span> Жарияланған</div><h3><a href=\"/courses/2\">Python арқылы деректерді талдау</a></h3><p>Кестелерді тазалау, талдау және нәтижелерді визуализациялау негіздері.</p><div class=\"teacher\"><span class=\"avatar\">Е</span>Ерлан Омар</div><div class=\"card-bottom\"><strong>20 000 ₸</strong><a href=\"/courses/2\">Толығырақ ↗</a></div></div></article><article class=\"course-card\"><div class=\"cover cover-2\"><span>Бағдарламалау</span><b>&lt;/&gt;</b><small>Бастапқы</small></div><div class=\"card-body\"><div class=\"meta\">24 сағат <span>·</span> Жариялан"
+    },
+    {
+      "method": "GET",
+      "route": "/courses/1",
+      "status": 200,
+      "expected": 200,
+      "body": "<!doctype html><html lang=\"kk\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Node.js және REST API · Qadam</title><link rel=\"stylesheet\" href=\"/assets/style.css\"><script src=\"/assets/app.js\" defer></script></head><body><header class=\"topbar\"><a class=\"brand\" href=\"/\"><span class=\"brandmark\">Q</span> qadam<span class=\"branddot\">.</span></a><nav aria-label=\"Негізгі мәзір\"><a href=\"/\">Курстар</a><a href=\"/learning\">Оқу прогресі</a><a href=\"/manage\">Басқару</a><a href=\"/api-docs\">API</a></nav><span class=\"demo\">Оқу жобасы</span></header><main>\n<a class=\"back\" href=\"/\">← Курс каталогы</a><div class=\"detail-layout\"><section><p class=\"eyebrow\">Бағдарламалау · Бастапқы</p><h1 class=\"detail-title\">Node.js және REST API</h1><p class=\"lead\">HTTP сұраныстарынан деректер қорына дейін: Express арқылы толық веб-қызмет құрыңыз.</p><div class=\"teacher\"><span class=\"avatar\">А</span><div><strong>Айдана Серік</strong><br><small>Веб бағдарламалау</small></div></div><h2>Курс бағдарламасы</h2><div class=\"lesson-list\"><details class=\"lesson\"><summary><span class=\"number\">01</span><strong>HTTP және клиент–сервер</strong><small>30 мин</small></summary><p>Клиент сұраныс жібереді, сервер статус, тақырыптар және жауап денесін қайтарады.</p></details><details class=\"lesson\"><summary><span class=\"number\">02</span><strong>Express маршруттары</strong><small>40 мин</small></summary><p>app.get, app.post, app.put және app.delete арқылы ресурстардың маршруттарын анықтаймыз.</p></details><details class=\"lesson\"><summary><span class=\"number\">03</span><strong>SQLite және CRUD</strong><small>45 мин</small></summary><p>SQL сұраныстарындағы параметрлер деректерді кодтан бөлуге мүмкіндік береді.</p></details></div></section><aside class=\"panel sticky\"><span class=\"tag\">Тіркелу ашық</span><h2>15 000 ₸</h2><p>24 сағат · 3 сабақ</p><hr><form id=\"enroll-form\" data-course-id=\"1\"><label for=\"student\">Студентті таңдаңыз</label><select id=\"student\" name=\"student_id\" required><option value=\"\">Таңдаңыз</option><option value=\"2\">Аружан Әсет</option><option value=\"1\">Әли Нұрлан</option></select><button class=\"button full\" >Курсқа тіркеу</button></form><p class=\"muted small\">Бұл демонстрациялық платформа. Төлем қабылданбайды.</p><a href=\"/manage\">Жаңа студент қосу →</a></aside></div></main><footer><span>Qadam Courses · СӨЖ №1</span><span>Онлайн оқу курстарын басқару · 2026</span></footer><div id=\"toast\" role=\"status\" aria-live=\"polite\" hidden></div></body></html>\n\n"
+    },
+    {
+      "method": "GET",
+      "route": "/learning",
+      "status": 200,
+      "expected": 200,
+      "body": "<!doctype html><html lang=\"kk\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Оқу прогресі · Qadam</title><link rel=\"stylesheet\" href=\"/assets/style.css\"><script src=\"/assets/app.js\" defer></script></head><body><header class=\"topbar\"><a class=\"brand\" href=\"/\"><span class=\"brandmark\">Q</span> qadam<span class=\"branddot\">.</span></a><nav aria-label=\"Негізгі мәзір\"><a href=\"/\">Курстар</a><a href=\"/learning\">Оқу прогресі</a><a href=\"/manage\">Басқару</a><a href=\"/api-docs\">API</a></nav><span class=\"demo\">Оқу жобасы</span></header><main>\n<p class=\"eyebrow\">НӘТИЖЕҢІЗДІ БАҚЫЛАҢЫЗ</p><h1 class=\"detail-title\">Оқу прогресі</h1><p class=\"lead\">Сабақты аяқтаған соң белгі қойыңыз. Прогресс деректер қорында сақталады.</p><div class=\"learning-grid\"><article class=\"panel\"><div class=\"section-head\"><div><span class=\"tag\">Белсенді</span><h2>Node.js және REST API</h2><p>Әли Нұрлан</p></div><strong class=\"percent\">33%</strong></div><progress max=\"100\" value=\"33\">33%</progress><p class=\"muted\">1 / 3 сабақ аяқталды</p><label class=\"check-row\"><input type=\"checkbox\" class=\"completion\" data-enrollment=\"1\" data-lesson=\"1\" data-progress=\"1\" checked ><span>HTTP және клиент–сервер</span><small>30 мин</small></label><label class=\"check-row\"><input type=\"checkbox\" class=\"completion\" data-enrollment=\"1\" data-lesson=\"2\" data-progress=\"\"  ><span>Express маршруттары</span><small>40 мин</small></label><label class=\"check-row\"><input type=\"checkbox\" class=\"completion\" data-enrollment=\"1\" data-lesson=\"3\" data-progress=\"\"  ><span>SQLite және CRUD</span><small>45 мин</small></label></article></div></main><footer><span>Qadam Courses · СӨЖ №1</span><span>Онлайн оқу курстарын басқару · 2026</span></footer><div id=\"toast\" role=\"status\" aria-live=\"polite\" hidden></div></body></html>\n\n"
+    },
+    {
+      "method": "GET",
+      "route": "/manage",
+      "status": 200,
+      "expected": 200,
+      "body": "<!doctype html><html lang=\"kk\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Ресурстарды басқару · Qadam</title><link rel=\"stylesheet\" href=\"/assets/style.css\"><script src=\"/assets/app.js\" defer></script></head><body><header class=\"topbar\"><a class=\"brand\" href=\"/\"><span class=\"brandmark\">Q</span> qadam<span class=\"branddot\">.</span></a><nav aria-label=\"Негізгі мәзір\"><a href=\"/\">Курстар</a><a href=\"/learning\">Оқу прогресі</a><a href=\"/manage\">Басқару</a><a href=\"/api-docs\">API</a></nav><span class=\"demo\">Оқу жобасы</span></header><main>\n<p class=\"eyebrow\">КУРСТАР МЕН ОҚУШЫЛАР</p><h1 class=\"detail-title\">Ресурстарды басқару</h1><p class=\"lead\">Жазбаларды қосу, өзгерту және өшіру. Барлық әрекет REST API арқылы орындалады.</p><div id=\"manager\" data-schemas=\"{&#34;teachers&#34;:{&#34;name&#34;:[&#34;text&#34;,2,100],&#34;email&#34;:[&#34;email&#34;],&#34;specialty&#34;:[&#34;text&#34;,2,120]},&#34;students&#34;:{&#34;name&#34;:[&#34;text&#34;,2,100],&#34;email&#34;:[&#34;email&#34;]},&#34;courses&#34;:{&#34;title&#34;:[&#34;text&#34;,3,150],&#34;slug&#34;:[&#34;slug&#34;],&#34;description&#34;:[&#34;text&#34;,10,3000],&#34;teacher_id&#34;:[&#34;id&#34;,&#34;teachers&#34;],&#34;category&#34;:[&#34;text&#34;,2,80],&#34;level&#34;:[&#34;enum&#34;,&#34;beginner&#34;,&#34;intermediate&#34;,&#34;advanced&#34;],&#34;price&#34;:[&#34;int&#34;,0,10000000],&#34;duration_hours&#34;:[&#34;int&#34;,1,10000],&#34;status&#34;:[&#34;enum&#34;,&#34;draft&#34;,&#34;published&#34;,&#34;archived&#34;]},&#34;lessons&#34;:{&#34;course_id&#34;:[&#34;id&#34;,&#34;courses&#34;],&#34;title&#34;:[&#34;text&#34;,3,150],&#34;content&#34;:[&#34;text&#34;,5,10000],&#34;position&#34;:[&#34;int&#34;,1,10000],&#34;duration_minutes&#34;:[&#34;int&#34;,1,10000]},&#34;enrollments&#34;:{&#34;student_id&#34;:[&#34;id&#34;,&#34;students&#34;],&#34;course_id&#34;:[&#34;id&#34;,&#34;courses&#34;],&#34;status&#34;:[&#34;enum&#34;,&#34;active&#34;,&#34;cancelled&#34;]},&#34;progress&#34;:{&#34;enrollment_id&#34;:[&#34;id&#34;,&#34;enrollments&#34;],&#34;lesson_id&#34;:[&#34;id&#34;,&#34;lessons&#34;],&#34;completed&#34;:[&#34;bool&#34;]}}\"><label for=\"resource\">Ресурс</label><select id=\"resource\"><option value=\"courses\">Курстар</option><option value=\"teachers\">Оқытушылар</option><option value=\"students\">Студенттер</option><option value=\"lessons\">Сабақтар</option><option value=\"enrollments\">Тіркелулер</option><option value=\"progress\">Прогресс</option></select><div class=\"manage-grid\"><section class=\"panel\"><div class=\"section-head\"><h2>Жазбалар</h2><button id=\"refresh\" class=\"secondary\">Жаңарту</button></div><div id=\"records\" class=\"records\"></div></section><section class=\"panel\"><h2 id=\"form-title\">Жаңа жазба</h2><form id=\"resource-form\"><div id=\"fields\"></div><div class=\"actions\"><button class=\"button\">Сақтау</button><button type=\"button\" id=\"clear\" class=\"secondary\">Жаңа жазба</button></div><pre id=\"form-error\" role=\"alert\" hidden></pr"
+    },
+    {
+      "method": "GET",
+      "route": "/api-docs",
+      "status": 200,
+      "expected": 200,
+      "body": "<!doctype html><html lang=\"kk\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>REST API анықтамасы · Qadam</title><link rel=\"stylesheet\" href=\"/assets/style.css\"><script src=\"/assets/app.js\" defer></script></head><body><header class=\"topbar\"><a class=\"brand\" href=\"/\"><span class=\"brandmark\">Q</span> qadam<span class=\"branddot\">.</span></a><nav aria-label=\"Негізгі мәзір\"><a href=\"/\">Курстар</a><a href=\"/learning\">Оқу прогресі</a><a href=\"/manage\">Басқару</a><a href=\"/api-docs\">API</a></nav><span class=\"demo\">Оқу жобасы</span></header><main>\n<p class=\"eyebrow\">DEVELOPER REFERENCE</p><h1 class=\"detail-title\">REST API</h1><p class=\"lead\">Base URL: <code>http://localhost:3000/api</code>. POST және PUT үшін Content-Type: application/json.</p><div class=\"panel table-wrap\"><table><thead><tr><th>Ресурс</th><th>Коллекция</th><th>Бір жазба</th></tr></thead><tbody><tr><td>teachers</td><td>GET, POST <code>/api/teachers</code></td><td>GET, PUT, DELETE <code>/api/teachers/:id</code></td></tr><tr><td>students</td><td>GET, POST <code>/api/students</code></td><td>GET, PUT, DELETE <code>/api/students/:id</code></td></tr><tr><td>courses</td><td>GET, POST <code>/api/courses</code></td><td>GET, PUT, DELETE <code>/api/courses/:id</code></td></tr><tr><td>lessons</td><td>GET, POST <code>/api/lessons</code></td><td>GET, PUT, DELETE <code>/api/lessons/:id</code></td></tr><tr><td>enrollments</td><td>GET, POST <code>/api/enrollments</code></td><td>GET, PUT, DELETE <code>/api/enrollments/:id</code></td></tr><tr><td>progress</td><td>GET, POST <code>/api/progress</code></td><td>GET, PUT, DELETE <code>/api/progress/:id</code></td></tr></tbody></table></div><h2>Қосымша мүмкіндіктер</h2><ul class=\"docs-list\"><li><a href=\"/api/courses/export.xml\">GET /api/courses/export.xml</a> — XML экспорт</li><li><a href=\"/api/courses?q=Node\">GET /api/courses?q=Node</a> — іздеу; category, level, status сүзгілері</li><li><a href=\"/api/lessons?course_id=1\">GET /api/lessons?course_id=1</a> — курс сабақтары</li><li><a href=\"/api/enrollments/1/summary\">GET /api/enrollments/1/summary</a> — оқу пайызы</li></ul><p>PUT барлық өңделетін өрістерді талап етеді. id және уақыт белгілерін сервер басқарады.</p><h2>HTTP жауаптары</h2><p>200 — сәтті · 201 — құрылды · 400 — дерек қате · 404 — табылмады · 405 — әдіс жоқ · 409 — қайталану не байланыс қайшылығы · 415 — JSON қажет · 500 — сервер қатесі.</p><pre>{\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Енгізілген деректерді тексеріңіз.\",\"details\":{\"title\":\"Міндетті өріс\"}}}</pre><p class=\"muted\">Бұл жергілікті оқу жобасында аккаунт пен рөлдік рұқсат жүйесі жоқ. Басқару интерфейсі барлық демонстрациялық ресурсты өңдейді.</p></main><footer><span>Qadam Courses · СӨЖ №1</span><span>Онлайн оқу курстарын басқару · 2026</span></footer><div id=\"toast\" role=\"status\" aria-live=\"polite\" hidden></div></body></html>\n\n"
+    },
+    {
+      "method": "GET",
+      "route": "/courses/999",
+      "status": 404,
+      "expected": 404,
+      "body": "<!doctype html><html lang=\"kk\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>404 · Qadam</title><link rel=\"stylesheet\" href=\"/assets/style.css\"><script src=\"/assets/app.js\" defer></script></head><body><header class=\"topbar\"><a class=\"brand\" href=\"/\"><span class=\"brandmark\">Q</span> qadam<span class=\"branddot\">.</span></a><nav aria-label=\"Негізгі мәзір\"><a href=\"/\">Курстар</a><a href=\"/learning\">Оқу прогресі</a><a href=\"/manage\">Басқару</a><a href=\"/api-docs\">API</a></nav><span class=\"demo\">Оқу жобасы</span></header><main>\n<section class=\"error-page\"><p class=\"eyebrow\">HTTP 404</p><h1>Ресурс табылмады.</h1><a class=\"button\" href=\"/\">Каталогқа оралу</a></section></main><footer><span>Qadam Courses · СӨЖ №1</span><span>Онлайн оқу курстарын басқару · 2026</span></footer><div id=\"toast\" role=\"status\" aria-live=\"polite\" hidden></div></body></html>\n\n"
+    },
+    {
+      "method": "GET",
+      "route": "/api/teachers",
+      "status": 200,
+      "expected": 200,
+      "body": "[{\"id\":2,\"name\":\"Ерлан Омар\",\"email\":\"erlan@example.com\",\"specialty\":\"Деректерді талдау\"},{\"id\":1,\"name\":\"Айдана Серік\",\"email\":\"aidana@example.com\",\"specialty\":\"Веб бағдарламалау\"}]"
+    },
+    {
+      "method": "GET",
+      "route": "/api/students",
+      "status": 200,
+      "expected": 200,
+      "body": "[{\"id\":2,\"name\":\"Аружан Әсет\",\"email\":\"aruzhan@example.com\"},{\"id\":1,\"name\":\"Әли Нұрлан\",\"email\":\"ali@example.com\"}]"
+    },
+    {
+      "method": "GET",
+      "route": "/api/courses",
+      "status": 200,
+      "expected": 200,
+      "body": "[{\"id\":3,\"title\":\"Веб интерфейс негіздері\",\"slug\":\"web-ui\",\"description\":\"HTML, CSS және JavaScript көмегімен қолжетімді интерфейс жасау.\",\"teacher_id\":1,\"category\":\"Дизайн\",\"level\":\"beginner\",\"price\":0,\"duration_hours\":16,\"status\":\"draft\",\"created_at\":\"2026-10-20 10:35:08\"},{\"id\":2,\"title\":\"Python арқылы деректерді талдау\",\"slug\":\"python-data\",\"description\":\"Кестелерді тазалау, талдау және нәтижелерді визуализациялау негіздері.\",\"teacher_id\":2,\"category\":\"Деректер\",\"level\":\"intermediate\",\"price\":20000,\"duration_hours\":32,\"status\":\"published\",\"created_at\":\"2026-10-20 10:35:08\"},{\"id\":1,\"title\":\"Node.js және REST API\",\"slug\":\"node-rest\",\"description\":\"HTTP сұраныстарынан деректер қорына дейін: Express арқылы толық веб-қызмет құрыңыз.\",\"teacher_id\":1,\"category\":\"Бағдарламалау\",\"level\":\"beginner\",\"price\":15000,\"duration_hours\":24,\"status\":\"published\",\"created_at\":\"2026-10-20 10:35:08\"}]"
+    },
+    {
+      "method": "GET",
+      "route": "/api/lessons",
+      "status": 200,
+      "expected": 200,
+      "body": "[{\"id\":5,\"course_id\":2,\"title\":\"Талдау және графиктер\",\"content\":\"Топтау, орташа мәндер және графиктер.\",\"position\":2,\"duration_minutes\":40},{\"id\":4,\"course_id\":2,\"title\":\"Деректерді дайындау\",\"content\":\"Бос мәндер мен қайталанатын жазбаларды анықтау.\",\"position\":1,\"duration_minutes\":35},{\"id\":3,\"course_id\":1,\"title\":\"SQLite және CRUD\",\"content\":\"SQL сұраныстарындағы параметрлер деректерді кодтан бөлуге мүмкіндік береді.\",\"position\":3,\"duration_minutes\":45},{\"id\":2,\"course_id\":1,\"title\":\"Express маршруттары\",\"content\":\"app.get, app.post, app.put және app.delete арқылы ресурстардың маршруттарын анықтаймыз.\",\"position\":2,\"duration_minutes\":40},{\"id\":1,\"course_id\":1,\"title\":\"HTTP және клиент–сервер\",\"content\":\"Клиент сұраныс жібереді, сервер статус, тақырыптар және жауап денесін қайтарады.\",\"position\":1,\"duration_minutes\":30}]"
+    },
+    {
+      "method": "GET",
+      "route": "/api/enrollments",
+      "status": 200,
+      "expected": 200,
+      "body": "[{\"id\":1,\"student_id\":1,\"course_id\":1,\"status\":\"active\",\"enrolled_at\":\"2026-10-20 10:35:08\"}]"
+    },
+    {
+      "method": "GET",
+      "route": "/api/progress",
+      "status": 200,
+      "expected": 200,
+      "body": "[{\"id\":1,\"enrollment_id\":1,\"lesson_id\":1,\"completed\":true,\"updated_at\":\"2026-10-20 10:35:08\"}]"
+    },
+    {
+      "method": "GET",
+      "route": "/api/courses?q=Node",
+      "status": 200,
+      "expected": 200,
+      "body": "[{\"id\":1,\"title\":\"Node.js және REST API\",\"slug\":\"node-rest\",\"description\":\"HTTP сұраныстарынан деректер қорына дейін: Express арқылы толық веб-қызмет құрыңыз.\",\"teacher_id\":1,\"category\":\"Бағдарламалау\",\"level\":\"beginner\",\"price\":15000,\"duration_hours\":24,\"status\":\"published\",\"created_at\":\"2026-10-20 10:35:08\"}]"
+    },
+    {
+      "method": "GET",
+      "route": "/api/courses?status=draft",
+      "status": 200,
+      "expected": 200,
+      "body": "[{\"id\":3,\"title\":\"Веб интерфейс негіздері\",\"slug\":\"web-ui\",\"description\":\"HTML, CSS және JavaScript көмегімен қолжетімді интерфейс жасау.\",\"teacher_id\":1,\"category\":\"Дизайн\",\"level\":\"beginner\",\"price\":0,\"duration_hours\":16,\"status\":\"draft\",\"created_at\":\"2026-10-20 10:35:08\"}]"
+    },
+    {
+      "method": "POST",
+      "route": "/api/courses",
+      "status": 201,
+      "expected": 201,
+      "body": "{\"id\":4,\"title\":\"Testing API Course\",\"slug\":\"testing-api\",\"description\":\"A test course for the automated CRUD lifecycle.\",\"teacher_id\":1,\"category\":\"Testing\",\"level\":\"beginner\",\"price\":1000,\"duration_hours\":10,\"status\":\"published\",\"created_at\":\"2026-10-20 10:35:08\"}"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/courses/4",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"id\":4,\"title\":\"Updated API Course\",\"slug\":\"testing-api\",\"description\":\"A test course for the automated CRUD lifecycle.\",\"teacher_id\":1,\"category\":\"Testing\",\"level\":\"beginner\",\"price\":1000,\"duration_hours\":10,\"status\":\"published\",\"created_at\":\"2026-10-20 10:35:08\"}"
+    },
+    {
+      "method": "GET",
+      "route": "/api/courses/4",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"id\":4,\"title\":\"Updated API Course\",\"slug\":\"testing-api\",\"description\":\"A test course for the automated CRUD lifecycle.\",\"teacher_id\":1,\"category\":\"Testing\",\"level\":\"beginner\",\"price\":1000,\"duration_hours\":10,\"status\":\"published\",\"created_at\":\"2026-10-20 10:35:08\"}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/courses",
+      "status": 400,
+      "expected": 400,
+      "body": "{\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Енгізілген деректерді тексеріңіз.\",\"details\":{\"title\":\"Міндетті өріс\",\"slug\":\"Міндетті өріс\",\"description\":\"Міндетті өріс\",\"teacher_id\":\"Міндетті өріс\",\"category\":\"Міндетті өріс\",\"level\":\"Міндетті өріс\",\"price\":\"Міндетті өріс\",\"duration_hours\":\"Міндетті өріс\",\"status\":\"Міндетті өріс\"}}}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/courses",
+      "status": 400,
+      "expected": 400,
+      "body": "{\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Енгізілген деректерді тексеріңіз.\",\"details\":{\"price\":\"Рұқсат етілген аралықтағы бүтін сан қажет\"}}}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/courses",
+      "status": 409,
+      "expected": 409,
+      "body": "{\"error\":{\"code\":\"DUPLICATE\",\"message\":\"Бірегей мән қайталанды (email, slug, тіркеу немесе сабақ реті).\"}}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/courses",
+      "status": 400,
+      "expected": 400,
+      "body": "{\"error\":{\"code\":\"INVALID_JSON\",\"message\":\"JSON синтаксисі қате.\"}}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/courses",
+      "status": 400,
+      "expected": 400,
+      "body": "{\"error\":{\"code\":\"INVALID_REFERENCE\",\"message\":\"teacher_id: байланысқан ресурс жоқ.\"}}"
+    },
+    {
+      "method": "GET",
+      "route": "/api/courses/no",
+      "status": 400,
+      "expected": 400,
+      "body": "{\"error\":{\"code\":\"INVALID_ID\",\"message\":\"ID оң бүтін сан болуы керек.\"}}"
+    },
+    {
+      "method": "GET",
+      "route": "/api/courses/999",
+      "status": 404,
+      "expected": 404,
+      "body": "{\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"Ресурс табылмады.\"}}"
+    },
+    {
+      "method": "GET",
+      "route": "/api/unknown",
+      "status": 404,
+      "expected": 404,
+      "body": "{\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"Endpoint табылмады\"}}"
+    },
+    {
+      "method": "PATCH",
+      "route": "/api/courses/1",
+      "status": 405,
+      "expected": 405,
+      "body": "{\"error\":{\"code\":\"METHOD_NOT_ALLOWED\",\"message\":\"Әдіске рұқсат жоқ\"}}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/courses",
+      "status": 201,
+      "expected": 201,
+      "body": "{\"id\":5,\"title\":\"API <XML> & \\\"test\\\"\",\"slug\":\"xml-test\",\"description\":\"A test course for the automated CRUD lifecycle.\",\"teacher_id\":1,\"category\":\"Testing\",\"level\":\"beginner\",\"price\":1000,\"duration_hours\":10,\"status\":\"published\",\"created_at\":\"2026-10-20 10:35:08\"}"
+    },
+    {
+      "method": "GET",
+      "route": "/api/courses/export.xml",
+      "status": 200,
+      "expected": 200,
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<courses><course><id>5</id><title>API &lt;XML&gt; &amp; &quot;test&quot;</title><slug>xml-test</slug><description>A test course for the automated CRUD lifecycle.</description><teacher_id>1</teacher_id><category>Testing</category><level>beginner</level><price>1000</price><duration_hours>10</duration_hours><status>published</status><created_at>2026-10-20 10:35:08</created_at></course><course><id>4</id><title>Updated API Course</title><slug>testing-api</slug><description>A test course for the automated CRUD lifecycle.</description><teacher_id>1</teacher_id><category>Testing</category><level>beginner</level><price>1000</price><duration_hours>10</duration_hours><status>published</status><created_at>2026-10-20 10:35:08</created_at></course><course><id>3</id><title>Веб интерфейс негіздері</title><slug>web-ui</slug><description>HTML, CSS және JavaScript көмегімен қолжетімді интерфейс жасау.</description><teacher_id>1</teacher_id><category>Дизайн</category><level>beginner</level><price>0</price><duration_hours>16</duration_hours><status>draft</status><created_at>2026-10-20 10:35:08</created_at></course><course><id>2</id><title>Python арқылы деректерді талдау</title><slug>python-data</slug><description>Кестелерді тазалау, талдау және нәтижелерді визуализациялау негіздері.</description><teacher_id>2</teacher_id><category>Деректер</category><level>intermediate</level><price>20000</price><duration_hours>32</duration_hours><status>published</status><created_at>2026-10-20 10:35:08</created_at></course><course><id>1</id><title>Node.js және REST API</title><slug>node-rest</slug><description>HTTP сұраныстарынан деректер қорына дейін: Express арқылы толық веб-қызмет құрыңыз.</description><teacher_id>1</teacher_id><category>Бағдарламалау</category><level>beginner</level><price>15000</price><duration_hours>24</duration_hours><status>published</status><created_at>2026-10-20 10:35:08</created_at></course></courses>"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/courses/5",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"message\":\"Ресурс өшірілді\",\"id\":5}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/teachers",
+      "status": 201,
+      "expected": 201,
+      "body": "{\"id\":3,\"name\":\"Test Teacher\",\"email\":\"testteacher@example.com\",\"specialty\":\"Testing\"}"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/teachers/3",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"id\":3,\"name\":\"Changed Teacher\",\"email\":\"testteacher@example.com\",\"specialty\":\"API\"}"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/teachers/3",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"message\":\"Ресурс өшірілді\",\"id\":3}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/students",
+      "status": 201,
+      "expected": 201,
+      "body": "{\"id\":3,\"name\":\"Test Student\",\"email\":\"student-test@example.com\",\"profile\":{\"bio\":\"\",\"joined_at\":\"2026-10-20 10:35:08\"}}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/students",
+      "status": 409,
+      "expected": 409,
+      "body": "{\"error\":{\"code\":\"DUPLICATE\",\"message\":\"Бірегей мән қайталанды (email, slug, тіркеу немесе сабақ реті).\"}}"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/students/3",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"message\":\"Ресурс өшірілді\",\"id\":3}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/lessons",
+      "status": 201,
+      "expected": 201,
+      "body": "{\"id\":6,\"course_id\":4,\"title\":\"Test lesson\",\"content\":\"Read the lesson content.\",\"position\":1,\"duration_minutes\":15}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/lessons",
+      "status": 409,
+      "expected": 409,
+      "body": "{\"error\":{\"code\":\"DUPLICATE\",\"message\":\"Бірегей мән қайталанды (email, slug, тіркеу немесе сабақ реті).\"}}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/enrollments",
+      "status": 201,
+      "expected": 201,
+      "body": "{\"id\":2,\"student_id\":2,\"course_id\":4,\"status\":\"active\",\"enrolled_at\":\"2026-10-20 10:35:08\"}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/enrollments",
+      "status": 409,
+      "expected": 409,
+      "body": "{\"error\":{\"code\":\"DUPLICATE\",\"message\":\"Бірегей мән қайталанды (email, slug, тіркеу немесе сабақ реті).\"}}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/enrollments",
+      "status": 409,
+      "expected": 409,
+      "body": "{\"error\":{\"code\":\"COURSE_NOT_PUBLISHED\",\"message\":\"Тек жарияланған курсқа тіркелуге болады.\"}}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/progress",
+      "status": 409,
+      "expected": 409,
+      "body": "{\"error\":{\"code\":\"COURSE_MISMATCH\",\"message\":\"Сабақ тіркелген курсқа тиесілі емес.\"}}"
+    },
+    {
+      "method": "POST",
+      "route": "/api/progress",
+      "status": 201,
+      "expected": 201,
+      "body": "{\"id\":2,\"enrollment_id\":2,\"lesson_id\":6,\"completed\":true,\"updated_at\":\"2026-10-20 10:35:08\"}"
+    },
+    {
+      "method": "GET",
+      "route": "/api/enrollments/2/summary",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"enrollment\":{\"id\":2,\"student_id\":2,\"course_id\":4,\"status\":\"active\",\"enrolled_at\":\"2026-10-20 10:35:08\"},\"total_lessons\":1,\"completed_lessons\":1,\"percent\":100}"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/progress/2",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"id\":2,\"enrollment_id\":2,\"lesson_id\":6,\"completed\":false,\"updated_at\":\"2026-10-20 10:35:08\"}"
+    },
+    {
+      "method": "GET",
+      "route": "/api/enrollments/2/summary",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"enrollment\":{\"id\":2,\"student_id\":2,\"course_id\":4,\"status\":\"active\",\"enrolled_at\":\"2026-10-20 10:35:08\"},\"total_lessons\":1,\"completed_lessons\":0,\"percent\":0}"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/enrollments/2",
+      "status": 409,
+      "expected": 409,
+      "body": "{\"error\":{\"code\":\"HAS_PROGRESS\",\"message\":\"Прогресі бар тіркеудің студентін не курсын өзгертуге болмайды.\"}}"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/lessons/6",
+      "status": 409,
+      "expected": 409,
+      "body": "{\"error\":{\"code\":\"HAS_PROGRESS\",\"message\":\"Прогресі бар сабақты басқа курсқа көшіруге болмайды.\"}}"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/courses/4",
+      "status": 409,
+      "expected": 409,
+      "body": "{\"error\":{\"code\":\"RESOURCE_IN_USE\",\"message\":\"Байланысқан жазбалар бар. Алдымен сол жазбаларды өңдеңіз.\"}}"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/enrollments/2",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"id\":2,\"student_id\":2,\"course_id\":4,\"status\":\"cancelled\",\"enrolled_at\":\"2026-10-20 10:35:08\"}"
+    },
+    {
+      "method": "PUT",
+      "route": "/api/progress/2",
+      "status": 409,
+      "expected": 409,
+      "body": "{\"error\":{\"code\":\"ENROLLMENT_INACTIVE\",\"message\":\"Тіркеу белсенді емес.\"}}"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/enrollments/2",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"message\":\"Ресурс өшірілді\",\"id\":2}"
+    },
+    {
+      "method": "GET",
+      "route": "/api/progress/2",
+      "status": 404,
+      "expected": 404,
+      "body": "{\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"Ресурс табылмады.\"}}"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/lessons/6",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"message\":\"Ресурс өшірілді\",\"id\":6}"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/courses/4",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"message\":\"Ресурс өшірілді\",\"id\":4}"
+    },
+    {
+      "method": "GET",
+      "route": "/api/courses/4",
+      "status": 404,
+      "expected": 404,
+      "body": "{\"error\":{\"code\":\"NOT_FOUND\",\"message\":\"Ресурс табылмады.\"}}"
+    },
+    {
+      "method": "GET",
+      "route": "/api/courses?q='%20OR%201%3D1%20--",
+      "status": 200,
+      "expected": 200,
+      "body": "[]"
+    },
+    {
+      "method": "POST",
+      "route": "/api/courses",
+      "status": 201,
+      "expected": 201,
+      "body": "{\"id\":6,\"title\":\"<script>alert(1)</script>\",\"slug\":\"escape-html\",\"description\":\"A test course for the automated CRUD lifecycle.\",\"teacher_id\":1,\"category\":\"Testing\",\"level\":\"beginner\",\"price\":1000,\"duration_hours\":10,\"status\":\"published\",\"created_at\":\"2026-10-20 10:35:08\"}"
+    },
+    {
+      "method": "GET",
+      "route": "/courses/6",
+      "status": 200,
+      "expected": 200,
+      "body": "<!doctype html><html lang=\"kk\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>&lt;script&gt;alert(1)&lt;/script&gt; · Qadam</title><link rel=\"stylesheet\" href=\"/assets/style.css\"><script src=\"/assets/app.js\" defer></script></head><body><header class=\"topbar\"><a class=\"brand\" href=\"/\"><span class=\"brandmark\">Q</span> qadam<span class=\"branddot\">.</span></a><nav aria-label=\"Негізгі мәзір\"><a href=\"/\">Курстар</a><a href=\"/learning\">Оқу прогресі</a><a href=\"/manage\">Басқару</a><a href=\"/api-docs\">API</a></nav><span class=\"demo\">Оқу жобасы</span></header><main>\n<a class=\"back\" href=\"/\">← Курс каталогы</a><div class=\"detail-layout\"><section><p class=\"eyebrow\">Testing · Бастапқы</p><h1 class=\"detail-title\">&lt;script&gt;alert(1)&lt;/script&gt;</h1><p class=\"lead\">A test course for the automated CRUD lifecycle.</p><div class=\"teacher\"><span class=\"avatar\">А</span><div><strong>Айдана Серік</strong><br><small>Веб бағдарламалау</small></div></div><h2>Курс бағдарламасы</h2><div class=\"lesson-list\"><p>Сабақтар әлі қосылмаған.</p></div></section><aside class=\"panel sticky\"><span class=\"tag\">Тіркелу ашық</span><h2>1 000 ₸</h2><p>10 сағат · 0 сабақ</p><hr><form id=\"enroll-form\" data-course-id=\"6\"><label for=\"student\">Студентті таңдаңыз</label><select id=\"student\" name=\"student_id\" required><option value=\"\">Таңдаңыз</option><option value=\"2\">Аружан Әсет</option><option value=\"1\">Әли Нұрлан</option></select><button class=\"button full\" >Курсқа тіркеу</button></form><p class=\"muted small\">Бұл демонстрациялық платформа. Төлем қабылданбайды.</p><a href=\"/manage\">Жаңа студент қосу →</a></aside></div></main><footer><span>Qadam Courses · СӨЖ №1</span><span>Онлайн оқу курстарын басқару · 2026</span></footer><div id=\"toast\" role=\"status\" aria-live=\"polite\" hidden></div></body></html>\n\n"
+    },
+    {
+      "method": "DELETE",
+      "route": "/api/courses/6",
+      "status": 200,
+      "expected": 200,
+      "body": "{\"message\":\"Ресурс өшірілді\",\"id\":6}"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> qadam-course-platform@1.0.0 test
+> node --test tests/*.test.cjs
+
+GET /
+GET /courses/1
+GET /learning
+GET /manage
+GET /api-docs
+GET /courses/999
+▶ Full assignment requirements and business invariants
+  ✔ EJS pages rendered from SQLite (58.654406ms)
+GET /api/teachers
+GET /api/students
+GET /api/courses
+GET /api/lessons
+GET /api/enrollments
+GET /api/progress
+GET /api/courses?q=Node
+GET /api/courses?status=draft
+  ✔ Six resources, search and JSON (21.048602ms)
+POST /api/courses
+PUT /api/courses/4
+GET /api/courses/4
+  ✔ Course CRUD and restart persistence (27.715433ms)
+POST /api/courses
+POST /api/courses
+POST /api/courses
+POST /api/courses
+POST /api/courses
+GET /api/courses/no
+GET /api/courses/999
+GET /api/unknown
+PATCH /api/courses/1
+POST /api/courses
+  ✔ Required fields, types, unique values, JSON errors (24.19153ms)
+POST /api/courses
+GET /api/courses/export.xml
+DELETE /api/courses/5
+  ✔ XML escaped and generated from database (10.124093ms)
+POST /api/teachers
+PUT /api/teachers/3
+DELETE /api/teachers/3
+POST /api/students
+POST /api/students
+DELETE /api/students/3
+  ✔ Student profile 1:1, teacher CRUD (23.114427ms)
+POST /api/lessons
+POST /api/lessons
+POST /api/enrollments
+POST /api/enrollments
+POST /api/enrollments
+POST /api/progress
+POST /api/progress
+GET /api/enrollments/2/summary
+PUT /api/progress/2
+GET /api/enrollments/2/summary
+PUT /api/enrollments/2
+PUT /api/lessons/6
+DELETE /api/courses/4
+PUT /api/enrollments/2
+PUT /api/progress/2
+DELETE /api/enrollments/2
+GET /api/progress/2
+DELETE /api/lessons/6
+DELETE /api/courses/4
+GET /api/courses/4
+  ✔ Enrollment, progress, business validation and FK deletion (61.406865ms)
+GET /api/courses?q=%27%20OR%201%3D1%20--
+POST /api/courses
+GET /courses/6
+DELETE /api/courses/6
+  ✔ Parameterized SQL and HTML escaping (10.161859ms)
+✔ Full assignment requirements and business invariants (269.195567ms)
+GET /manage
+GET /api/teachers
+GET /api/courses
+GET /api/students
+POST /api/students
+GET /api/students
+PUT /api/students/3
+GET /api/students
+DELETE /api/students/3
+GET /api/students
+GET /api/students
+PASS: browser DOM logic tested with jsdom; visual browser test unavailable in this environment.
+✔ Manager client DOM: create, edit, delete and resource selector (246.566739ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 787.575875

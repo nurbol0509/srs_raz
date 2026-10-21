@@ -1,0 +1,132 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> qadam-course-platform@1.0.0 test:postman
+> node scripts/postman-test.cjs
+
+(node:18) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+newman
+
+Qadam Courses — SOZH 1
+
+→ 01 List courses
+  GET http://127.0.0.1:42041/api/courses GET /api/courses
+[200 OK, 1.38kB, 22ms]
+  ✓  Status 200
+
+→ 02 Search courses
+  GET http://127.0.0.1:42041/api/courses?q=Node GET /api/courses?q=Node
+[200 OK, 636B, 3ms]
+  ✓  Status 200
+
+→ 03 XML export
+  GET http://127.0.0.1:42041/api/courses/export.xml GET /api/courses/export.xml
+[200 OK, 1.71kB, 2ms]
+  ✓  Status 200
+  ✓  XML content type
+
+→ 04 Create course
+  POST http://127.0.0.1:42041/api/courses POST /api/courses
+[201 Created, 556B, 12ms]
+  ✓  Status 201
+
+→ 05 Read created course
+  GET http://127.0.0.1:42041/api/courses/4 GET /api/courses/4
+[200 OK, 525B, 3ms]
+  ✓  Status 200
+
+→ 06 Update course
+  PUT http://127.0.0.1:42041/api/courses/4 PUT /api/courses/4
+[200 OK, 529B, 4ms]
+  ✓  Status 200
+
+→ 07 Add lesson
+  POST http://127.0.0.1:42041/api/lessons POST /api/lessons
+[201 Created, 395B, 5ms]
+  ✓  Status 201
+
+→ 08 Enroll student
+  POST http://127.0.0.1:42041/api/enrollments POST /api/enrollments
+[201 Created, 371B, 4ms]
+  ✓  Status 201
+
+→ 09 Complete lesson
+  POST http://127.0.0.1:42041/api/progress POST /api/progress
+[201 Created, 369B, 4ms]
+  ✓  Status 201
+
+→ 10 Progress summary
+  GET http://127.0.0.1:42041/api/enrollments/2/summary GET /api/enrollments/2/summary
+[200 OK, 406B, 2ms]
+  ✓  Status 200
+  ✓  100 percent
+
+→ 11 Required fields
+  POST http://127.0.0.1:42041/api/courses POST /api/courses
+[400 Bad Request, 728B, 2ms]
+  ✓  Status 400
+
+→ 12 Wrong type
+  POST http://127.0.0.1:42041/api/courses POST /api/courses
+[400 Bad Request, 468B, 2ms]
+  ✓  Status 400
+
+→ 13 Duplicate slug
+  POST http://127.0.0.1:42041/api/courses POST /api/courses
+[409 Conflict, 399B, 3ms]
+  ✓  Status 409
+
+→ 14 Invalid JSON
+  POST http://127.0.0.1:42041/api/courses POST /api/courses
+[400 Bad Request, 335B, 3ms]
+  ✓  Status 400
+
+→ 15 Missing record
+  GET http://127.0.0.1:42041/api/courses/999999 GET /api/courses/999999
+[404 Not Found, 327B, 2ms]
+  ✓  Status 404
+
+→ 16 Referenced course cannot be deleted
+  DELETE http://127.0.0.1:42041/api/courses/4 DELETE /api/courses/4
+[409 Conflict, 407B, 2ms]
+  ✓  Status 409
+
+→ 17 Delete enrollment and its progress
+  DELETE http://127.0.0.1:42041/api/enrollments/2 DELETE /api/enrollments/2
+[200 OK, 295B, 4ms]
+  ✓  Status 200
+
+→ 18 Delete lesson
+  DELETE http://127.0.0.1:42041/api/lessons/6 DELETE /api/lessons/6
+[200 OK, 295B, 4ms]
+  ✓  Status 200
+
+→ 19 Delete course
+  DELETE http://127.0.0.1:42041/api/courses/4 DELETE /api/courses/4
+[200 OK, 295B, 3ms]
+  ✓  Status 200
+
+→ 20 Confirm deleted
+  GET http://127.0.0.1:42041/api/courses/4 GET /api/courses/4
+[404 Not Found, 327B, 1ms]
+  ✓  Status 404
+
+┌─────────────────────────┬─────────────────┬─────────────────┐
+│                         │        executed │          failed │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              iterations │               1 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│                requests │              20 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│            test-scripts │              20 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│      prerequest-scripts │               1 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              assertions │              22 │               0 │
+├─────────────────────────┴─────────────────┴─────────────────┤
+│ total run duration: 352ms                                   │
+├─────────────────────────────────────────────────────────────┤
+│ total data received: 5.65kB (approx)                        │
+├─────────────────────────────────────────────────────────────┤
+│ average response time: 4ms [min: 1ms, max: 22ms, s.d.: 4ms] │
+└─────────────────────────────────────────────────────────────┘
